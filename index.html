@@ -5,9 +5,10 @@
       <!-- CSS (move to separate file later) -->
       <style>
          body {
-         font-family: "Courier New", sans-serif;
+         font-family: "Helvetica";
          background-color: #008a9c;
          }
+         
          .navBar {
          height: 100%;
          width: 0;
@@ -34,6 +35,7 @@
          display: block;
          transition: 0.3s;
          }
+
          .navBar a:hover {
          color: #0093a7;
          }
@@ -53,7 +55,9 @@
    <body>
       <!-- Nav Bar -->
       <div id="mainNavBar" class="navBar">
-         <a href="javascript:void(0)" class="closeNavBarBtn" onclick="closeNavBar()">&times;</a>
+         <!-- Close Button -->
+         <a style="font-size:30px;cursor:pointer" class="closeNavBarBtn" onclick="closeNavBar()">&times;</a>
+         <!-- Nav Links/Pages -->
          <a href="#">Page1</a>
          <a href="#">Page2</a>
          <a href="#">Page3</a>
@@ -64,13 +68,15 @@
          <a href="#">Page8</a>
          <a href="#">Page9</a>
          <a href="#">Page10</a>
-         
+         <!-- Bottom Text -->
          <a class="navBar-bottom" style="font-size: 18px;">By Ethan Blank & Brandon Westerman</a>
       </div>
       <!-- Header & p1 Text & Open Nav Bar button -->
-      <h2>Hedgehogs</h2>
-      <p>Welcome to the world of hedgehogs!</p>
-      <span style="font-size:30px;cursor:pointer" onclick="openNavBar()">&#9776;</span>
+      <div class="main-content" id="main-content-div">
+        <h2>Hedgehogs</h2>
+        <p>Welcome to the world of hedgehogs!</p>
+        <span style="font-size:30px;cursor:pointer" onclick="openNavBar()">&#9776;</span>
+      </div>
       <!-- JavaScript for open/close nav bar -->
       <script>
          function openNavBar() {
