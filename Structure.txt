@@ -1,0 +1,18 @@
+Page Location Breakdown:
+	Home
+	My Hedgehogs
+	Watch Me Growing
+	For Sale
+		Babies
+		Adults
+		Waiting List
+		Sold Hedgehogs
+	Hedgehog Care
+		Cages And Accessories
+		Color Guide
+		Treat/Nutrition
+	Contact Me
+	Reviews
+	
+	
+		

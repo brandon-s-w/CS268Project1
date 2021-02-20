@@ -2,11 +2,16 @@
 <html>
    <head>
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Andi’s Critters</title>
       <!-- CSS (move to separate file later) -->
       <style>
          body {
-         font-family: "Helvetica";
-         background-color: #008a9c;
+            font-family: "Helvetica";
+            background-color: #d5f4e6;
+         }
+
+         .main-content {
+            transition: 0.5s;
          }
          
          .navBar {
@@ -16,24 +21,22 @@
          z-index: 1;
          top: 0;
          left: 0;
-         background-color: rgb(0, 0, 0);
+         background-color: #618685;
          overflow-x: hidden;
          transition: 0.5s;
-         padding-top: 60px;
          }
          
          .navBar-bottom {
          position: absolute;
-         bottom: 10%;
+         bottom: 50px;
          left: 0;
-         font-size: 12px;
          }
 
          .navBar a {
          padding: 8px 8px 8px 32px;
          text-decoration: none;
          font-size: 25px;
-         color: #00e1ff;
+         color: #fefbd8;
          display: block;
          transition: 0.3s;
          }
@@ -42,7 +45,7 @@
          color: #0093a7;
          }
 
-         .navBar .closeNavBarBtn {
+         .navBarButton {
          position: absolute;
          top: 0;
          right: 25px;
@@ -51,44 +54,82 @@
          }
 
          @media screen and (max-height: 450px) {
-         .navBar {padding-top: 15px;}
-         .navBar a {font-size: 18px;}
+            .navBar {padding-top: 15px;}
+            .navBar a {font-size: 18px;}
+         }
+
+         footer {
+            display: flex;
+            justify-content: center;
+            padding: 5px;
+            background-color: #80ced6;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            transition: 0.5s;
+         }
+
+         footer a {
+            display: flex;
+            justify-content: center;
+            padding: 5px;
+            color: #fff;
          }
       </style>
    </head>
    <body>
       <!-- Nav Bar -->
-      <div id="mainNavBar" class="navBar">
+      <div id="mainNavBar" class="navBar" style="width: 60px;">
          <!-- Close Button -->
-         <a style="font-size:30px;cursor:pointer" class="closeNavBarBtn" onclick="closeNavBar()">&times;</a>
-         <!-- Nav Links/Pages -->
-         <a href="#">Page1</a>
-         <a href="#">Page2</a>
-         <a href="#">Page3</a>
-         <a href="#">Page4</a>
-         <a href="#">Page5</a>
-         <a href="#">Page6</a>
-         <a href="#">Page7</a>
-         <a href="#">Page8</a>
-         <a href="#">Page9</a>
-         <a href="#">Page10</a>
-         <!-- Bottom Text -->
-         <a class="navBar-bottom" style="font-size: 18px;">By Ethan Blank & Brandon Westerman</a>
+         <span style="font-size:50px;cursor:pointer; float: right; margin-right: 7px; color: #fefbd8;" id="navBarButton" onclick="toggleNavBar()">&#9776;</span>
+         <br><br>
+         <!-- Nav Content -->
+         <div id="navContent" style="visibility: hidden; margin-top: 20px;">
+            <a href="index.html">Home</a>
+            <a href="myhedgehogs.html">My Hedgehogs</a>
+            <a href="megrowing.html">Watch Me Growing</a>
+            <a href="forsale.html">For Sale</a>
+            <a href="sold.html">Sold</a>
+            <a href="care.html">Hedgehog Care</a>
+            <a href="funfacts.html">Fun Facts!</a>
+
+            <!-- Bottom Text -->
+            <div class="navBar-bottom">
+               <a style="font-size: 18px;">Designed By:</a>
+               <a style="font-size: 18px;">Ethan Blank & Brandon Westerman</a>
+            </div>
+            
+         </div>
       </div>
-      <!-- Header & p1 Text & Open Nav Bar button -->
-      <div class="main-content" id="main-content-div">
-        <h2>Hedgehogs</h2>
-        <p>Welcome to the world of hedgehogs!</p>
-        <span style="font-size:30px;cursor:pointer" onclick="openNavBar()">&#9776;</span>
+      <!-- Main content Div -->
+      <div class="main-content" id="main-content-div" style="margin-left: 60px;">
+        <h2>Welcome to Andi’s Critters!</h2>
+        <p>The one location for all you need to know about hedgehogs!</p>
       </div>
+      <!-- Footer -->
+      <footer id="footerID">
+         <a href="contact.html">Contact Me</a>
+         <a href="reviews.html">Reviews</a>
+     </footer>
       <!-- JavaScript for open/close nav bar -->
       <script>
-         function openNavBar() {
-           document.getElementById("mainNavBar").style.width = "250px";
-         }
-         
-         function closeNavBar() {
-           document.getElementById("mainNavBar").style.width = "0";
+         var isNavBarOpen = false;
+         function toggleNavBar(){
+            if(isNavBarOpen){
+               document.getElementById("navContent").style.visibility = "hidden";
+               document.getElementById("mainNavBar").style.width = "60px";
+               document.getElementById("main-content-div").style.marginLeft = "60px";
+               document.getElementById("footerID").style.marginLeft = "60px";
+               
+               isNavBarOpen = false;
+            } else {
+               document.getElementById("navContent").style.visibility = "visible";
+               document.getElementById("mainNavBar").style.width = "275px";
+               document.getElementById("main-content-div").style.marginLeft = "275px";
+               document.getElementById("footerID").style.marginLeft = "275px";
+               isNavBarOpen = true;
+            }
          }
       </script>
    </body>
