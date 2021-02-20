@@ -6,7 +6,7 @@ Page Location Breakdown:
 		Babies
 		Adults
 		Waiting List
-		Sold Hedgehogs
+	Sold
 	Hedgehog Care
 		Cages And Accessories
 		Color Guide

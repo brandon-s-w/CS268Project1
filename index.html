@@ -2,85 +2,8 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="css/styles.css">
         <title>Andi’s Critters</title>
-        <!-- CSS (move to separate file later) -->
-        <style>
-            body {
-                font-family: "Helvetica";
-                background-color: #d5f4e6;
-            }
-
-            .main-content {
-                transition: 0.5s;
-            }
-
-            .navBar {
-                height: 100%;
-                width: 0;
-                position: fixed;
-                z-index: 1;
-                top: 0;
-                left: 0;
-                background-color: #618685;
-                overflow-x: hidden;
-                transition: 0.5s;
-            }
-
-            .navBar-bottom {
-                position: absolute;
-                bottom: 50px;
-                left: 0;
-            }
-
-            .navBar a {
-                padding: 8px 8px 8px 32px;
-                text-decoration: none;
-                font-size: 25px;
-                color: #fefbd8;
-                display: block;
-                transition: 0.3s;
-            }
-
-            .navBar a:hover {
-                color: #0093a7;
-            }
-
-            .navBarButton {
-                position: absolute;
-                top: 0;
-                right: 25px;
-                font-size: 36px;
-                margin-left: 50px;
-            }
-
-            @media screen and (max-height: 450px) {
-                .navBar {
-                    padding-top: 15px;
-                }
-                .navBar a {
-                    font-size: 18px;
-                }
-            }
-
-            footer {
-                display: flex;
-                justify-content: center;
-                padding: 5px;
-                background-color: #80ced6;
-                position: fixed;
-                left: 0;
-                bottom: 0;
-                width: 100%;
-                transition: 0.5s;
-            }
-
-            footer a {
-                display: flex;
-                justify-content: center;
-                padding: 5px;
-                color: #fff;
-            }
-        </style>
     </head>
     <body>
         <!-- Nav Bar -->
