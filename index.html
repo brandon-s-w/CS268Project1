@@ -8,26 +8,26 @@
     <body>
         <!-- Nav Bar -->
         <div id="mainNavBar" class="navBar" style="width: 60px;">
-            <!-- Close Button -->
+            <!-- Nav Button -->
             <span style="font-size: 50px; cursor: pointer; float: right; margin-right: 7px; color: #fefbd8;" id="navBarButton" onclick="toggleNavBar()">&#9776;</span>
-            <!-- Separators/Breaks (will later be replaced by title) -->
-            <br>
-            <br>
+            <!-- Nav Title -->
+            <div class="navBar-title" id="navTitle" style="visibility: hidden;">
+                <h3>Andi's Critters</h3>
+                <img src="https://cdn2.iconfinder.com/data/icons/animals-nature-2/50/1F994-hedgehog-512.png" style="width: 100px;">
+            </div>
+            <!-- Nav Image -->
+            <div class="navBar-image" id="navImage" style="visibility: hidden;">
+                <img src="https://cdn2.iconfinder.com/data/icons/animals-nature-2/50/1F994-hedgehog-512.png" style="width: 100px;">
+            </div>
             <!-- Nav Content -->
-            <div id="navContent" style="visibility: hidden; margin-top: 20px;">
-                <a href="index.html">Home</a>
+            <div id="navContent" style="visibility: hidden;">
+                <a href="index.html" style="overflow: visible;">Home</a>
                 <a href="myhedgehogs.html">My Hedgehogs</a>
                 <a href="megrowing.html">Watch Me Growing</a>
                 <a href="forsale.html">For Sale</a>
                 <a href="sold.html">Sold</a>
                 <a href="care.html">Hedgehog Care</a>
                 <a href="funfacts.html">Fun Facts!</a>
-
-                <!-- Bottom Text -->
-                <div class="navBar-bottom">
-                    <a style="font-size: 18px;">Designed By:</a>
-                    <a style="font-size: 18px;">Ethan Blank & Brandon Westerman</a>
-                </div>
             </div>
         </div>
         <!-- Page Content -->
@@ -35,8 +35,6 @@
             <header>
                 <div class="overlay">
                     <h1>Andi’s Critters!</h1>
-                    <h3>The website for everything hedgehogs!</h3>
-                    <br>
                     <button onclick="window.location.href='contact.html'">Contact Me</button>
                     <button onclick="window.location.href='reviews.html'">Reviews</button>
                 </div>
@@ -65,6 +63,8 @@
                 if (isNavBarOpen) {
                     var closedNavContentWidth = screenWidth - 60 + "px";
                     // Set properties for closed Nav Bar
+                    document.getElementById("navTitle").style.visibility = "hidden";
+                    document.getElementById("navImage").style.visibility = "hidden";
                     document.getElementById("navContent").style.visibility = "hidden";
                     document.getElementById("mainNavBar").style.width = closedNavWidth;
                     document.getElementById("main-div").style.marginLeft = closedNavWidth;
@@ -74,6 +74,8 @@
                 } else {
                     var openedNavContentWidth = screenWidth - 275 + "px";
                     // Set Properties for opened Nav Bar
+                    document.getElementById("navTitle").style.visibility = "visible";
+                    document.getElementById("navImage").style.visibility = "visible";
                     document.getElementById("navContent").style.visibility = "visible";
                     document.getElementById("mainNavBar").style.width = openedNavWidth;
                     document.getElementById("main-div").style.marginLeft = openedNavWidth;
