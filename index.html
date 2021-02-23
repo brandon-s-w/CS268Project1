@@ -10,8 +10,9 @@
         <div id="mainNavBar" class="navBar" style="width: 60px;">
             <!-- Close Button -->
             <span style="font-size: 50px; cursor: pointer; float: right; margin-right: 7px; color: #fefbd8;" id="navBarButton" onclick="toggleNavBar()">&#9776;</span>
-            <br />
-            <br />
+            <!-- Separators/Breaks (will later be replaced by title) -->
+            <br>
+            <br>
             <!-- Nav Content -->
             <div id="navContent" style="visibility: hidden; margin-top: 20px;">
                 <a href="index.html">Home</a>
@@ -30,19 +31,31 @@
             </div>
         </div>
         <!-- Page Content -->
-        <div class="main-content" id="main-content-div" style="margin-left: 60px;">
-            <!-- Main Content-->
-            <h2>Welcome to Andi’s Critters!</h2>
-            <p>The one location for all you need to know about hedgehogs!</p>
-
-            <!-- Footer -->
-            <footer id="footerID">
-                <a href="contact.html">Contact Me</a>
-                <a href="reviews.html">Reviews</a>
-            </footer>
+        <div class="main" id="main-div">
+            <header>
+                <div class="overlay">
+                    <h1>Andi’s Critters!</h1>
+                    <h3>The website for everything hedgehogs!</h3>
+                    <br>
+                    <button onclick="window.location.href='contact.html'">Contact Me</button>
+                    <button onclick="window.location.href='reviews.html'">Reviews</button>
+                </div>
+            </header>
+            <br>
+            <div class="main-content" id="main-content-div">
+                <p>Example Slideshow</p>
+                <div class="main-slideshow">
+                    <img class="mySlides" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/hedgehog-on-the-stump-royalty-free-image-1589365293.jpg">
+                    <img class="mySlides" src="https://dcist.com/wp-content/uploads/sites/3/2018/11/hedgehogs2018-1024x708.jpg">
+                    <img class="mySlides" src="https://cdn.hswstatic.com/gif/hedgehog-pet.jpg">
+                
+                </div>
+            </div>
+            
         </div>
         <!-- Javascript -->
         <script>
+            // Nav Bar
             var isNavBarOpen = false;
             function toggleNavBar() {
                 // Variables
@@ -50,27 +63,39 @@
                 var openedNavWidth = "275px";
                 var closedNavWidth = "60px";
                 if (isNavBarOpen) {
-                    var closedNavContentWidth = screenWidth - 80 + "px";
+                    var closedNavContentWidth = screenWidth - 60 + "px";
                     // Set properties for closed Nav Bar
                     document.getElementById("navContent").style.visibility = "hidden";
                     document.getElementById("mainNavBar").style.width = closedNavWidth;
-                    document.getElementById("main-content-div").style.marginLeft = closedNavWidth;
-                    document.getElementById("main-content-div").style.width = closedNavContentWidth;
-                    document.getElementById("footerID").style.marginLeft = closedNavWidth;
-                    document.getElementById("footerID").style.width = closedNavContentWidth;
+                    document.getElementById("main-div").style.marginLeft = closedNavWidth;
+                    document.getElementById("main-div").style.width = closedNavContentWidth;
 
                     isNavBarOpen = false;
                 } else {
-                    var openedNavContentWidth = screenWidth - 295 + "px";
+                    var openedNavContentWidth = screenWidth - 275 + "px";
                     // Set Properties for opened Nav Bar
                     document.getElementById("navContent").style.visibility = "visible";
                     document.getElementById("mainNavBar").style.width = openedNavWidth;
-                    document.getElementById("main-content-div").style.marginLeft = openedNavWidth;
-                    document.getElementById("main-content-div").style.width = openedNavContentWidth;
-                    document.getElementById("footerID").style.marginLeft = openedNavWidth;
-                    document.getElementById("footerID").style.width = openedNavContentWidth;
+                    document.getElementById("main-div").style.marginLeft = openedNavWidth;
+                    document.getElementById("main-div").style.width = openedNavContentWidth;
                     isNavBarOpen = true;
                 }
+            }
+            // carousel slideshow
+            var myIndex = 0;
+            carousel();
+            function carousel() {
+                var i;
+                var x = document.getElementsByClassName("mySlides");
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";  
+                }
+                myIndex++;
+                if (myIndex > x.length) {
+                    myIndex = 1
+                }    
+                x[myIndex-1].style.display = "block";  
+                setTimeout(carousel, 2000); // Change image every 2 seconds
             }
         </script>
     </body>
