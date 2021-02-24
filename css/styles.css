@@ -32,10 +32,6 @@ body {
     transition: .5s;
 }
 
-.navBarImg{
-    src: url('https://cdn2.iconfinder.com/data/icons/animals-nature-2/50/1F994-hedgehog-512.png');
-}
-
 .navBar .navContent{
     transition: 0.5s;
 }
