@@ -145,7 +145,7 @@ header button:hover{
 }
   
 .box img {
-    width: 200%;
+    width: 150%;
     height: calc(100% - 10vh);
     object-fit: cover; 
     transition: .5s;
