@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/contact.css">
+        <script src="js/main.js"></script>
+        <!-- optional, prevents the submit button from being pressed more than once -->
+        <script>
+            var submitButton = document.getElementById("submit_form");
+            var form = document.getElementById("email_form");
+            form.addEventListener("submit", function (e) {
+                setTimeout(function() {
+                    submitButton.value = "Sending...";
+                    submitButton.disabled = true;
+                }, 1);
+            });
+        </script> 
+        <title>Andi’s Critters - Contact</title>
+    </head>
+    <body>
+        <!-- Nav Bar -->
+        <div id="mainNavBar" class="navBar" style="width: 0px;">
+            <!-- Nav Title -->
+            <div class="navBar-title" id="navTitle" style="visibility: hidden; margin-left: -200px;">
+                <h3 style="width: 100%;">Andi's Critters</h3>
+                <img src="https://cdn2.iconfinder.com/data/icons/animals-nature-2/50/1F994-hedgehog-512.png" style="width: 100px;">
+            </div>
+            <!-- Nav Content -->
+            <div id="navContent" style="visibility: hidden; margin-top: 150px;">
+                <a class="navItem" href="index.html" style="overflow: visible;">Home</a>
+                <a class="navItem" href="myhedgehogs.html">My Hedgehogs</a>
+                <a class="navItem" href="megrowing.html">Watch Me Growing</a>
+                <a class="navItem" href="forsale.html">For Sale</a>
+                <a class="navItem" href="sold.html">Sold</a>
+                <a class="navItem" href="care.html">Hedgehog Care</a>
+                <a class="navItem" href="funfacts.html">Fun Facts!</a>
+            </div>
+        </div>
+        <!-- Page Content -->
+        <div class="main" id="main-div">
+            <div class="main-content" id="main-content-div">
+                <form action="https://postmail.invotes.com/send"
+                    method="post" id="email_form">
+                    <h3>Email Us!</h3>
+                    <input type="text" name="subject" placeholder="Subject" />
+                    <textarea name="text" placeholder="Message"></textarea>
+                    <input type="hidden" name="access_token" value="jje2m9f1okqhwbbvbnbwv7lp" />
+                    <!-- return urls can be fully qualified -OR-
+                        start with / for root relative -OR-
+                        start with . for url relative --> 
+                    <input type="hidden" name="success_url" value=".Project1/index.html" />
+                    <input type="hidden" name="error_url" value=".Project1/contact.html" />
+                
+                    <!-- set the reply-to address -->
+                    <input type="text" name="reply_to"
+                                placeholder="Your Email" />
+
+                    <!-- to append extra fields, use the extra_ prefix.
+                        Entries will be appended to your message body. -->
+                    <!-- <input type="text" name="extra_phone_number"
+                                placeholder="Phone Number" /> -->
+
+                    <!-- to split your message into 160 chars
+                        for an sms gateway -->
+                    <!-- <input type="hidden"
+                                name="sms_format" value="true" /> -->
+                
+                    <input id="submit_form" type="submit" value="Send" />
+                    <!-- not required, but we'd appreciate it if you'd link to us somewhere on your site -->
+                    <p>Powered by <a href="https://postmail.invotes.com" target="_blank">PostMail</a></p>
+                </form>
+            </div>
+            <h3 style="margin-bottom: 50px;">Social Media Links!</h3>
+            <div class="socialsDiv">
+                <ul>
+                    <li>
+                      <a href="#">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                        <span> - Facebook</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                        <span> - Twitter</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="fa fa-google-plus" aria-hidden="true"></i>
+                        <span> - Google</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                        <span> - Instagram</span>
+                      </a>
+                    </li>
+                  </ul>
+            </div>
+        </div>
+        <!-- Header -->
+        <header id="header" style="height: 75px;">
+            <!-- Nav Button -->
+            <span class="navButton" id="navBarButton" style="margin-top: 0px;"onclick="toggleNavBar()">&#9776;</span>
+            
+            <div class="overlay" id="headerOverlay" style="height: 75px;">
+                <h1 id="headerTitle" style="font-size: 60px;">Contact</h1>
+            </div>
+        </header>
+    </body>
+</html>
