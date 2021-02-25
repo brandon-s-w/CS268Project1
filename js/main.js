@@ -71,10 +71,10 @@ function scrollFunction() {
             document.getElementById("contactButton").style.marginTop = "0";
             document.getElementById("reviewsButton").style.visibility = "visible";
             document.getElementById("reviewsButton").style.marginTop = "0";
-            document.getElementById("header").style.height = "150px";
+            document.getElementById("header").style.height = "130px";
             document.getElementById("headerOverlay").style.height = "150px";
-            document.getElementById("headerTitle").style.fontSize = "80px";
-            document.getElementById("navBarButton").style.marginTop = "35px";
+            document.getElementById("headerTitle").style.fontSize = "70px";
+            document.getElementById("navBarButton").style.marginTop = "25px";
         } catch (error) {
 
             document.getElementById("header").style.height = "75px";
