@@ -1,5 +1,7 @@
 CS 268 - Web Systems - Project
 
-Current working prototype:
+Current working prototypes:
 
-![](demo.gif)
+Contact:
+
+![](images/contact-demo.gif)
