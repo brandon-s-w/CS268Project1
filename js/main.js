@@ -56,12 +56,12 @@ function scrollFunction() {
             document.getElementById("reviewsButton").style.marginTop = "50px";
             document.getElementById("header").style.height = "75px";
             document.getElementById("headerOverlay").style.height = "75px";
-            document.getElementById("headerTitle").style.fontSize = "60px";
+            document.getElementById("headerTitle").style.fontSize = "57px";
             document.getElementById("navBarButton").style.marginTop = "0px";
         } catch (error) {
             document.getElementById("header").style.height = "75px";
             document.getElementById("headerOverlay").style.height = "75px";
-            document.getElementById("headerTitle").style.fontSize = "60px";
+            document.getElementById("headerTitle").style.fontSize = "57px";
             document.getElementById("navBarButton").style.marginTop = "0px";
         }
     } else {

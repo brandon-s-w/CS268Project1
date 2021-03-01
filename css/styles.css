@@ -82,6 +82,7 @@ header {
 	background-size: fix;
 	background-attachment: fixed;
     background-position-y: -400px;
+	box-shadow: 0 3px 20px 0 #0000003b;
 	overflow: hidden;
     transition: 0.5s;
 }
@@ -123,7 +124,7 @@ header button:hover{
     margin-left: 25px;
     margin-right: 25px;
     margin-top: 150px;
-    width: 90%;
+    width: 100%;
     transition: 0.3s;
 }
 
@@ -132,7 +133,7 @@ header button:hover{
     width: 93%;
     padding: 1% 0%;
     box-sizing: border-box;
-    height: 50vh;
+    height: 70vh;
 }
   
 .box {
