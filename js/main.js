@@ -5,8 +5,6 @@ window.onload = function() {
         document.getElementById("headerTitle").style.fontSize = "50px";
         document.getElementById("headerTitle").style.padding = "10px";
         document.getElementById("navBarButton").style.marginTop = "5px";
-    } else {
-        document.getElementById("navBarButton").style.marginTop = "5px";
     }
 };
 
