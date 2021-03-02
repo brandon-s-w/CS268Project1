@@ -11,9 +11,11 @@ Page Location Breakdown:
 		Cages And Accessories
 		Color Guide
 		Treat/Nutrition
+	Q&A
 	Fun Facts
-	Contact Me
-	Reviews
+
+	Contact Me (in main page header)
+	Reviews (in main page header)
 
 Needed Images:
 	My Hedgehog Images
