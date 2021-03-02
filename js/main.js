@@ -1,3 +1,15 @@
+window.onload = function() {
+    if( /Android|webOS|iPhone|iPad|Mac|Macintosh|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {  
+        document.getElementById("header").style.height = "80px";
+        document.getElementById("headerOverlay").style.height = "80px";
+        document.getElementById("headerTitle").style.fontSize = "50px";
+        document.getElementById("headerTitle").style.padding = "10px";
+        document.getElementById("navBarButton").style.marginTop = "5px";
+    } else {
+        document.getElementById("navBarButton").style.marginTop = "5px";
+    }
+};
+
 // Nav Bar
 var isNavBarOpen = false;
 function toggleNavBar() {
@@ -12,13 +24,18 @@ function toggleNavBar() {
         // Nav Content
         document.getElementById("navContent").style.visibility = "hidden";
         // Nav Buttons
-        document.getElementById("navBarButton").style.marginLeft = "25px";
+        document.getElementById("navBarButton").style.marginLeft = "5px";
         // Header
         document.getElementById("headerOverlay").style.marginLeft = "0px";
         document.getElementById("headerOverlay").style.width = "100%";
         // Main Content
         document.getElementById("main-div").style.marginLeft = "0";
         document.getElementById("main-div").style.width = "100%";
+
+        // Handle Mobile displays
+        if( /Android|webOS|iPhone|iPad|Mac|Macintosh|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {  
+            document.getElementById("headerTitle").style.padding = "10px";
+        }
         // Toggle variable
         isNavBarOpen = false;
     } else {
@@ -31,57 +48,22 @@ function toggleNavBar() {
         // Nav Content
         document.getElementById("navContent").style.visibility = "visible";
         // Nav Button
-        document.getElementById("navBarButton").style.marginLeft = "300px";
+        document.getElementById("navBarButton").style.marginLeft = "280px";
         // Header
         document.getElementById("headerOverlay").style.marginLeft = "275px";
         document.getElementById("headerOverlay").style.width = openedNavContentWidth + "px";
         // Main Content
         document.getElementById("main-div").style.marginLeft = "275px";
         document.getElementById("main-div").style.width = openedNavContentWidth + "px";
+
+        
+
+        // Handle Mobile displays
+        if( /Android|webOS|iPhone|iPad|Mac|Macintosh|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {  
+            document.getElementById("headerTitle").style.paddingLeft = "2000px";
+        }
+
         // Toggle variable
         isNavBarOpen = true;
-    }
-    scrollFunction();
-}
-
-// Scroll catcher
-window.onscroll = function() {scrollFunction()};
-function scrollFunction() {
-    if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-        // Small
-        try{
-            document.getElementById("contactButton").style.visibility = "hidden";
-            document.getElementById("contactButton").style.marginTop = "50px";
-            document.getElementById("reviewsButton").style.visibility = "hidden";
-            document.getElementById("reviewsButton").style.marginTop = "50px";
-            document.getElementById("header").style.height = "75px";
-            document.getElementById("headerOverlay").style.height = "75px";
-            document.getElementById("headerTitle").style.fontSize = "57px";
-            document.getElementById("navBarButton").style.marginTop = "0px";
-        } catch (error) {
-            document.getElementById("header").style.height = "75px";
-            document.getElementById("headerOverlay").style.height = "75px";
-            document.getElementById("headerTitle").style.fontSize = "57px";
-            document.getElementById("navBarButton").style.marginTop = "0px";
-        }
-    } else {
-        // Big
-        try {
-            document.getElementById("contactButton").style.visibility = "visible";
-            document.getElementById("contactButton").style.marginTop = "0";
-            document.getElementById("reviewsButton").style.visibility = "visible";
-            document.getElementById("reviewsButton").style.marginTop = "0";
-            document.getElementById("header").style.height = "130px";
-            document.getElementById("headerOverlay").style.height = "150px";
-            document.getElementById("headerTitle").style.fontSize = "70px";
-            document.getElementById("navBarButton").style.marginTop = "25px";
-        } catch (error) {
-
-            document.getElementById("header").style.height = "75px";
-            document.getElementById("headerOverlay").style.height = "75px";
-            document.getElementById("headerTitle").style.fontSize = "60px";
-            document.getElementById("navBarButton").style.marginTop = "0px";
-        }
-        
     }
 }
