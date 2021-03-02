@@ -17,7 +17,7 @@ function toggleNavBar() {
         document.getElementById("headerOverlay").style.marginLeft = "0px";
         document.getElementById("headerOverlay").style.width = "100%";
         // Main Content
-        document.getElementById("main-div").style.marginLeft = "0px";
+        document.getElementById("main-div").style.marginLeft = "0";
         document.getElementById("main-div").style.width = "100%";
         // Toggle variable
         isNavBarOpen = false;

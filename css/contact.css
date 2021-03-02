@@ -5,37 +5,35 @@
 	text-align: center;
 	justify-content: center;
 	align-items: center;
-	display: inline;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	justify-content: space-around;
 }
-.main-content {
-	margin: 100px 50%;
-}
-.main-content form {
+.main form {
 	width: 400px;
 	background-color: #72911C;
 	box-shadow: 0 20px 30px rgba(0, 0, 0, .2);
 	padding: 1%;
-	margin: 10px;
-	margin-left: -200px;
 	border-radius: 10px;
 	text-align: center;
 }
-.main-content form input {
-	text-align: center;
-	width: 92%;
-	background-color: #E0DFD4;
-	outline: #E0DFD4;
-	padding: 1%;
-	margin: 10px;
-}
-.main-content form textarea {
+.main form input {
 	text-align: center;
 	width: 92%;
 	background-color: #E0DFD4;
 	padding: 1%;
 	margin: 10px;
 }
-.main-content form h3 {
+.main form textarea {
+	text-align: center;
+	width: 92%;
+	background-color: #E0DFD4;
+	padding: 1%;
+	margin: 10px;
+	height: 150px;
+}
+.main form h3 {
 	text-align: center;
 	width: 92%;
 	font-family: 'Dancing Script', cursive;
@@ -48,7 +46,6 @@
 	margin: 10px;
 	margin-left: 14px;
 }
-
 .main h3 {
 	text-align: center;
 	width: 100%;
@@ -59,36 +56,31 @@
 	padding: 1%;
 }
 
-
 ul {
-    width: 225px;
-    height: 175px;
 	position: absolute;
-	top: 50%;
-	left: 50%;
 	transform: translate(-50%, -50%);
-	display:inline;
-	margin-top: 350px;
-	padding: 1;
-}
-ul li {
+	display: flex;
+	margin-top: 200px;
 	list-style: none;
-	margin: 0 5px;
-    margin-left: 37px;
-    margin-top: 60px;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items:center;
+}
+
+ul li {
+	margin: 10px;
 }
 ul li a .fa {
 	font-size: 40px;
 	color: #262626;
 	line-height: 80px;
 	transition: .5s;
-	padding-right: -10px;
 }
 ul li a span {
 	padding: 0;
-	margin: 0;
 	position: absolute;
-	top: 30px;
+	top: 20px;
 	color: #262626;
 	letter-spacing: 4px;
 	transition: .5s;
