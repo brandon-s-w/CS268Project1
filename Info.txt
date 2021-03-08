@@ -1,0 +1,37 @@
+Page Location Breakdown:
+	Home
+	My Hedgehogs
+	Watch Me Growing
+	For Sale
+		Babies
+		Adults
+		Waiting List
+	Sold
+	Hedgehog Care
+		Cages And Accessories
+		Color Guide
+		Treat/Nutrition
+	Q&A
+	Fun Facts
+
+	Contact Me (in main page header)
+	Reviews (in main page header)
+
+Needed Images:
+	My Hedgehog Images
+	Watch Me Growing Images (if possible)
+	For Sale Images
+	Sold Images
+	Care Images (cage setup pictures?)
+	Header Image (should be large and high quality since it will be on every page)
+	
+Contact:
+	This only allows a max of 25 emails per day. So if you start getting more website traffic, you should consider upgrading to allow for more client connections.
+
+	sender email: AndisCritters@gmail.com
+	sender password: AndisCritters123
+	postmail link: https://postmail.invotes.com/accounts/manage/90b65ac8-d32d-4161-90c9-dcc5c06ce547
+	postmail access token: jje2m9f1okqhwbbvbnbwv7lp
+	
+	
+		
