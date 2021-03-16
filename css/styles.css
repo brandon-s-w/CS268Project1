@@ -75,13 +75,13 @@ body {
 header {
     position: fixed;
     top:0;
-	background: url('https://ichef.bbci.co.uk/images/ic/1920x1080/p06bn4bw.jpg');
+	background: url('https://images.unsplash.com/photo-1589832020701-87d1717b4653?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
 	text-align: center;
 	width: 100%;
 	height: 80px;
 	background-size: fix;
 	background-attachment: fixed;
-    background-position-y: -400px;
+    background-position-y: -650px;
 	box-shadow: 0 3px 20px 0 #0000003b;
 	overflow: hidden;
     transition: 0.5s;
