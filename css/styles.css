@@ -123,11 +123,13 @@ header button:hover{
 }
 
 .container {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     width: 100%;
     padding: 1% 0%;
     box-sizing: border-box;
-    height: 70vh;
+    height: 45vh;
 }
   
 .box {
@@ -140,7 +142,7 @@ header button:hover{
 }
   
 .box img {
-    width: 150%;
+    width: 100%;
     height: calc(100% - 10vh);
     object-fit: cover; 
     transition: .5s;
@@ -155,7 +157,7 @@ header button:hover{
 }
   
 .box:hover { 
-    flex: 1 1 50%; 
+    flex: 50% 1 50%; 
 }
 
 .box:hover > img {
@@ -163,4 +165,73 @@ header button:hover{
     height: 100%;
 }
 
+@media (min-width: 1000px){
+    .container {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+   }
+}
+
+@media (min-width: 0px) and (max-width: 999px){
+    .container {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+   }
+}
+
+
+
+.card {
+  position: relative;
+
+  margin: 25px auto;
+  width: 375px;
+  height: 375px;
+  overflow: hidden;
+
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.card_part {
+  position: absolute;
+  z-index: 7;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+  transform: translateX( 375px );
+  background-image: url("/AndisCritters/images/Home/\ \(1\).jpg" );
+
+  animation: opaqTransition 28s cubic-bezier(0, 0, 0, 0.97) infinite;
+  background-size:cover;
+}
+
+
+.card_part.card_part-two {
+  z-index: 6;
+  background-image: url("/AndisCritters/images/Home/\ \(2\).jpg" );
+  animation-delay: 7s;
+}
+
+.card_part.card_part-three {
+  z-index: 5;
+  background-image: url("/AndisCritters/images/Home/\ \(3\).jpg" );
+  animation-delay: 14s;
+}
+
+.card_part.card_part-four {
+  z-index: 4;
+  background-image: url("/AndisCritters/images/Home/\ \(4\).jpg" );
+  animation-delay: 21s;
+}
+
+
+@keyframes opaqTransition {
+  3% { transform: translateX( 0 ); }
+  25% { transform: translateX( 0 ); }
+  28% { transform: translateX( -375px ); }
+  100% { transform: translateX( -375px ); }
+} 
 
