@@ -8,6 +8,8 @@ window.onload = function() {
     }
 };
 
+
+
 // Nav Bar
 var isNavBarOpen = false;
 function toggleNavBar() {
