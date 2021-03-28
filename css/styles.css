@@ -147,8 +147,36 @@ header button:hover{
     object-fit: cover; 
     transition: .5s;
 }
+
+.qa {
+    width: 100%;
+    text-align: center;
+}
+
+.qa .question {
+	font-family: 'Dancing Script', cursive;
+	font-size: 50px;
+    font-weight: bold;
+    color: #72911C;
+	text-shadow: 2px 2px 2px white;
+}
+
+.qa .answer {
+	font-family: 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	font-size: 20px;
+    font-weight: bold;
+    color: #333;
+	text-shadow: 2px 2px 2px white;
+}
   
 .box span {
+    font-size: 3.8vh;
+    display: block;
+    text-align: center;
+    height: 10vh;
+    line-height: 2.6;
+}
+.box p {
     font-size: 3.8vh;
     display: block;
     text-align: center;
@@ -201,8 +229,8 @@ header button:hover{
   position: relative;
 
   margin: 25px auto;
-  width: 400px;
-  height: 400px;
+  width: 250px;
+  height: 250px;
   overflow: hidden;
 
   border-radius: 10px;
@@ -217,7 +245,7 @@ header button:hover{
   width: 100%;
   height: 100%;
 
-  transform: translateX( 375px );
+  transform: translateX( 250px );
   background-image: url("../images/Home/\ \(1\).jpg" );
   animation: opaqTransition 28s cubic-bezier(0, 0, 0, 0.97) infinite;
   background-size:cover;
@@ -245,6 +273,6 @@ header button:hover{
 @keyframes opaqTransition {
   3% { transform: translateX( 0 ); }
   25% { transform: translateX( 0 ); }
-  28% { transform: translateX( -400px ); }
-  100% { transform: translateX( -400px ); }
+  28% { transform: translateX( -250px ); }
+  100% { transform: translateX( -250px ); }
 }
