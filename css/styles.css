@@ -168,6 +168,30 @@ header button:hover{
     color: #333;
 	text-shadow: 2px 2px 2px white;
 }
+
+.reviews {
+    width: 100%;
+    text-align: left;
+    margin: 20px;
+}
+
+.reviews .name {
+	font-family: 'Dancing Script', cursive;
+	font-size: 35px;
+    font-weight: bold;
+    color: #72911C;
+	text-shadow: 2px 2px 2px white;
+}
+
+.reviews .review {
+	font-family: 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	font-size: 20px;
+    font-weight: bold;
+    color: #333;
+	text-shadow: 2px 2px 2px white;
+    margin-top:5px;
+    margin-left: 100px;
+}
   
 .box span {
     font-size: 3.8vh;
