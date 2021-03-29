@@ -290,7 +290,7 @@ header button:hover{
   transform: translateX( 250px );
   background-image: url("../images/Home/\ \(1\).jpg" );
   animation: opaqTransition 28s cubic-bezier(0, 0, 0, 0.97) infinite;
-  background-size:cover;
+  background-size:contain;
 }
 
 .card_part.card_part-two {
