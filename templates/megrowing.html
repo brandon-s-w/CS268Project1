@@ -1,0 +1,78 @@
+{% extends "Common.html" %}
+{% block title %}Watch Me Grow{% endblock %}
+{% block html_head %}
+    <link rel = "stylesheet" type="text/css" href="{{url_for('static', filename = 'css/watchmegrowing.css')}}">
+{% endblock %}
+{% block content %}
+    <div>
+        <div class="container">
+                <div class="box">
+                    <img src="{{url_for('static', filename = 'images/WatchMeGrowing/2 days.jpg')}}" alt="2 days hedgehog">
+                    <span>2 Days Old</span>
+                </div>
+                <div class="box">
+                    <img src="{{url_for('static', filename = 'images/WatchMeGrowing/5 days.jpg')}}" alt="5 days hedgehog">
+                    <span>5 Days Old</span>
+                </div>
+                <div class="box">
+                    <img src="{{url_for('static', filename = 'images/WatchMeGrowing/8 days.jpg')}}" alt="8 days hedgehog">
+                    <span>8 Days Old</span>
+                </div>
+                <div class="box">
+                    <img src="{{url_for('static', filename = 'images/WatchMeGrowing/11 days.jpg')}}" alt="11 days hedgehog">
+                    <span>11 Days Old</span>
+                </div>
+                <div class="box">
+                    <img src="{{url_for('static', filename = 'images/WatchMeGrowing/15 days.jpg')}}" alt="15 days hedgehog">
+                    <span>15 Days Old</span>
+                </div>
+                <div class="box">
+                    <img src="{{url_for('static', filename = 'images/WatchMeGrowing/21 days.jpg')}}" alt="21 days hedgehog">
+                    <span>21 Days Old</span>
+                </div>
+                <div class="box">
+                    <img src="{{url_for('static', filename = 'images/WatchMeGrowing/24 days.jpg')}}" alt="24 days hedgehog">
+                    <span>24 Days Old</span>
+                </div>
+            </div>
+        <div class="growthSteps" style="text-align: center;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr; ">
+                <div>
+                    <p class="day">2 Days</p>
+                    <p class="info">The hoglets were just born and currently unable to see. Recommended not to disturb the mother hedgehog at all so she doesnt abondon the hoglets.</p>
+                </div>
+                <div>
+                    <p class="day">5 Days</p>
+                    <p class="info">The hoglets are still unable to see however you can do some careful spot cleaning of their cage.</p>
+                </div>
+                <div>
+                    <p class="day">8 Days</p>
+                    <p class="info">At this point the hoglets are more likely to survive but be careful to not disturb the mother in any way.</p>
+                </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; grid-template-rows: 1fr">
+                <div>
+                    <p class="day">11 Days</p>
+                    <p class="info">You should be able to clean the cages as long as the mom doesnt seem to be in distressed.</p>
+                </div>
+                <div>
+                    <p class="day">15 Days</p>
+                    <p class="info">At this point up until the 18th day is when the hoglets gain the ability to see.</p>
+                </div>
+                <div>
+                    <p class="day">21 Days</p>
+                    <p class="info">Almost through the hardpart, it isn't very likely for the mother to abandon them at this point and they hoglets will start moving around more.</p>
+                </div>
+                <div>
+                    <p class="day">24 Days</p>
+                    <p class="info">The hoglets have grown a fair amount and in the following week you can begin with weaning process.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block navOverlay %}
+    <div class="overlay" id="headerOverlay" style="height: 75px;">
+        <h1 id="headerTitle" style="font-size: 57px;">Watch Me Grow</h1>
+    </div>
+{% endblock %}

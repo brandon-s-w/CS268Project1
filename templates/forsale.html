@@ -1,0 +1,35 @@
+{% extends "Common.html" %}
+{% block title %}For Sale{% endblock %}
+{% block html_head %}
+{% endblock %}
+{% block content %}
+    <div style="height: 150%;">
+        <h3 style="width: 100%; text-align: center;">Here are some hedgehogs that are for sale!</h3>
+
+        <div class="container" style="height: 55vh; width: 55vh; grid-template-columns: 1fr; grid-template-rows: 1fr; margin: auto; text-align: center;">
+            <div class="box">
+                <img src="images/Sale/(2).jpg" alt="for sale #2 hedgehog">
+                <span>Price: $140</span>
+            </div>
+            <p>Born on 02/13/21</p>
+            <p>Grey Pinto Colored</p>
+            <p>Male</p>
+            <p>Ready on 03/03/21</p>
+        </div>
+        <div class="container" style="height: 55vh; width: 55vh; grid-template-columns: 1fr; grid-template-rows: 1fr; margin: auto; text-align: center;">
+            <div class="box">
+                <img src="images/Sale/(1).jpg" alt="for sale #1 hedgehog">
+                <span>Price: $160</span>
+            </div>
+            <p>Born on 02/13/21</p>
+            <p>Cinnamon Colored</p>
+            <p>Male</p>
+            <p>Ready on 03/03/21</p>
+        </div>
+    </div>
+{% endblock %}
+{% block navOverlay %}
+    <div class="overlay" id="headerOverlay" style="height: 75px;">
+        <h1 id="headerTitle" style="font-size: 57px;">For Sale</h1>
+    </div>
+{% endblock %}
