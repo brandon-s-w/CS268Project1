@@ -390,19 +390,16 @@ header button:hover{
 
 .card_part.card_part-two {
   z-index: 6;
-  background-image: url({{url_for('static', filename = 'images/Home/2.jpg')}});
   animation-delay: 7s;
 }
 
 .card_part.card_part-three {
   z-index: 5;
-  background-image: url({{url_for('static', filename = 'images/Home/3.jpg')}});
   animation-delay: 14s;
 }
 
 .card_part.card_part-four {
   z-index: 4;
-  background-image: url({{url_for('static', filename = 'images/Home/4.jpg')}});
   animation-delay: 21s;
 }
 
@@ -420,19 +417,16 @@ header button:hover{
 
 .card_part_2.card_part-two {
     z-index: 6;
-    background-image: url({{url_for('static', filename = 'images/Home/6.jpg')}});
     animation-delay: 7s;
   }
   
 .card_part_2.card_part-three {
     z-index: 5;
-    background-image: url({{url_for('static', filename = 'images/Home/7.jpg')}});
     animation-delay: 14s;
 }
   
 .card_part_2.card_part-four {
     z-index: 4;
-    background-image: url({{url_for('static', filename = 'images/Home/8.jpg')}});
     animation-delay: 21s;
 }  
 
