@@ -3,29 +3,20 @@
 {% block html_head %}
 {% endblock %}
 {% block content %}
-    <div style="height: 150%;">
+    <div>
         <h3 style="width: 100%; text-align: center;">Here are some hedgehogs that are for sale!</h3>
-
-        <div class="container" style="height: 55vh; width: 55vh; grid-template-columns: 1fr; grid-template-rows: 1fr; margin: auto; text-align: center;">
-            <div class="box">
-                <img src="images/Sale/(2).jpg" alt="for sale #2 hedgehog">
-                <span>Price: $140</span>
+        {% for row in rows %}
+            <div class="container" style="height: 55vh; width: 55vh; grid-template-columns: 1fr; grid-template-rows: 1fr; margin: auto; text-align: center;">
+                <div class="box">
+                    <img src="data:image/jpg;base64,{{ row[7].decode('ascii') }}" alt="for sale #{{row[0]}} hedgehog">
+                    <span>{{row[1]}} - {{row[2]}}</span>
+                </div>
+                <p>Date of Birth: {{row[3]}}</p>
+                <p>Color: {{row[4]}}</p>
+                <p>Gender: {{row[5]}}</p>
+                <p>Ready: {{row[6]}}</p>
             </div>
-            <p>Born on 02/13/21</p>
-            <p>Grey Pinto Colored</p>
-            <p>Male</p>
-            <p>Ready on 03/03/21</p>
-        </div>
-        <div class="container" style="height: 55vh; width: 55vh; grid-template-columns: 1fr; grid-template-rows: 1fr; margin: auto; text-align: center;">
-            <div class="box">
-                <img src="images/Sale/(1).jpg" alt="for sale #1 hedgehog">
-                <span>Price: $160</span>
-            </div>
-            <p>Born on 02/13/21</p>
-            <p>Cinnamon Colored</p>
-            <p>Male</p>
-            <p>Ready on 03/03/21</p>
-        </div>
+        {% endfor %}
     </div>
 {% endblock %}
 {% block navOverlay %}

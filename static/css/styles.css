@@ -320,10 +320,6 @@ header button:hover{
         grid-template-columns: 1fr ;
         grid-template-rows: 1fr 1fr 1fr;
     }
-    .homevideo {
-        width: 854px;
-        height: 480px;
-    }
     .main {
         height: 190%;
     }
@@ -380,13 +376,13 @@ header button:hover{
     align-items: center;
     width: 100%;
     height: 100%;
-  
+
     transform: translateX( 350px );
 
     background-image: url({{url_for('static', filename = 'images/Home/1.jpg')}});
     animation: opaqTransition 28s cubic-bezier(0, 0, 0, 0.97) infinite;
     background-size:contain;
-  }
+}
 
 .card_part.card_part-two {
   z-index: 6;
