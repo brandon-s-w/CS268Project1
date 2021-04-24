@@ -66,7 +66,14 @@ def contact():
 
 @app.route('/Reviews')
 def reviews():
-    return render_template("reviews.html")
+    con = sql.connect("database.db")
+    c = con.cursor()
+    rows = getReviews(con, c)
+
+    # for row in rows:
+    #    print(row)
+
+    return render_template("reviews.html", rows=rows)
 
 
 class ForSaleListing(object):
@@ -151,6 +158,37 @@ def getForSale(con, c):
     # return table results
     con.row_factory = sql.Row
     stmt = "select * from ForSale"
+    c.execute(stmt)
+
+    return c.fetchall()
+
+def getReviews(con, c):
+    # drop table
+    try:
+        stmt = "DROP TABLE Reviews"
+        c.execute(stmt)
+    except Exception as e:
+        print(e)
+    # create table
+    try:
+        stmt = "CREATE TABLE Reviews (id INTEGER PRIMARY KEY, name TEXT NOT NULL, review TEXT NOT NULL, date TEXT NOT NULL);"
+        c.execute(stmt)
+        con.commit()
+    except Exception as e:
+        print(e)
+
+    try:
+        c.execute("""INSERT INTO Reviews (name, review, date) VALUES (?, ?, ?)""", ("Jacob Jackobson", "Great service, Love playing/watching my hedgehog! Thank you guys!", "3/21/21"))
+        c.execute("""INSERT INTO Reviews (name, review, date) VALUES (?, ?, ?)""", ("Timmy Timmerson", "Quick email responces, great customer service, and quality hedgehogs! Will definitely be recommending to all of my friends!", "2/15/21"))
+        c.execute("""INSERT INTO Reviews (name, review, date) VALUES (?, ?, ?)""", ("Sally Sandsman", "Cute hedgehogs! Cant wait until mine arrives!", "1/12/21"))
+        c.execute("""INSERT INTO Reviews (name, review, date) VALUES (?, ?, ?)""", ("Penny Nickelson", "Just ordered 2 hedgehogs, amazing customer service!", "12/29/20"))
+    except Exception as e:
+        print(e)
+
+
+    # return table results
+    con.row_factory = sql.Row
+    stmt = "select * from Reviews"
     c.execute(stmt)
 
     return c.fetchall()
