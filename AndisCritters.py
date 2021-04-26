@@ -47,7 +47,11 @@ def care():
 
 @app.route('/Q&A')
 def questionsAndAnswers():
-    return render_template("questionsandanswers.html")
+    con = sql.connect("database.db")
+    c = con.cursor()
+    rows = getQA(con, c)
+
+    return render_template("questionsandanswers.html", rows=rows)
 
 
 @app.route('/FunFacts')
@@ -237,6 +241,53 @@ def getReviews(con, c):
     # return table results
     con.row_factory = sql.Row
     stmt = "select * from Reviews"
+    c.execute(stmt)
+
+    return c.fetchall()
+
+def getQA(con, c):
+    # drop table
+    try:
+        stmt = "DROP TABLE QA"
+        c.execute(stmt)
+    except Exception as e:
+        print(e)
+    # create table
+    try:
+        stmt = "CREATE TABLE QA (id INTEGER PRIMARY KEY, name TEXT NOT NULL, question TEXT NOT NULL, answer TEXT);"
+        c.execute(stmt)
+        con.commit()
+    except Exception as e:
+        print(e)
+
+    try:
+        # populate table
+        obj = ForSaleListing()
+        qaPath = os.getcwd() + "\\static\\QA"
+        qaPath = qaPath.replace("\\", "/")
+        for x in obj.load_directory(path=qaPath):
+            try:
+                Name = x.replace(".txt", "")
+                Question = Answer = ''
+                with open(qaPath + "/" + x, "r") as f:
+                    file_data = f.readlines()
+                    for item in file_data:
+                        if 'Question' in item:
+                            Question = get_value(item)
+                        elif 'Answer' in item:
+                            Answer = get_value(item)
+                c.execute("""INSERT INTO QA (name, question, answer) VALUES (?, ?, ?)""", (Name, Question, Answer))
+                print("Added review from {}".format(Name))
+            except Exception as e:
+                print(e)
+                print("{} Not added to database ".format(x))
+    except Exception as e:
+        print(e)
+
+
+    # return table results
+    con.row_factory = sql.Row
+    stmt = "select * from QA"
     c.execute(stmt)
 
     return c.fetchall()

@@ -5,24 +5,16 @@
 {% block content %}
     <div>
         <div class="qa">
-            <p class="question">Can hedgehogs live together?</p>
-            <p class="answer">I do not cage my hedgehogs together but they will (sometimes) accept companions.</p>
-            <p class="answer">I only recommend housing females together because males will fight one another.</p>
-            <br>
-            <br>
-            <p class="question">Do they sleep during the day?</p>
-            <p class="answer">Yes they are nocturnal and will sleep during the day and are very active at night.</p>
-            <p class="answer">They may get up from time to time during the day to get something to eat and drink especially the ones with babies.</p>
-            <br>
-            <br>
-            <p class="question">Are hedgehogs expensive?</p>
-            <p class="answer">To buy one can get pricey, to care for it not really unless it has to go to the vet.</p>
-            <br>
-            <br>
-            <p class="question">Do hedgehogs need a wheel in their cage?</p>
-            <p class="answer">Yes. Hedgehogs can get really restless. </p>
-            <br>
+            {% for row in rows %}
+                <p class="question">'{{row[2]}}' - {{row[1]}}</p>
+                <p class="answer">'{{row[3]}}' - Andi</p>
+                <br>
+            {% endfor %}
         </div>
+        <br>
+        <br>
+        <br>
+        <h3 style="margin: 20px;">Want to submit a question? Email us through our contact page!</h3>
     </div>
 {% endblock %}
 {% block navOverlay %}
