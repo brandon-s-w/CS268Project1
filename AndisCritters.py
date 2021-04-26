@@ -1,16 +1,11 @@
 import base64
 
-from flask import Flask, render_template, request, flash
+from flask import Flask, render_template
 import sqlite3 as sql
 import os
-import unicodecsv
-import sys
 
 app = Flask(__name__)
 app.secret_key = 'development key'
-
-
-
 
 @app.route('/')
 def home():
@@ -33,15 +28,16 @@ def forSale():
     c = con.cursor()
     rows = getForSale(con, c)
 
-    #for row in rows:
-    #    print(row)
-
     return render_template("forsale.html", rows=rows)
 
 
 @app.route('/Sold')
 def sold():
-    return render_template("sold.html")
+    con = sql.connect("database.db")
+    c = con.cursor()
+    rows = getSold(con, c)
+
+    return render_template("sold.html", rows=rows)
 
 
 @app.route('/Care')
@@ -69,9 +65,6 @@ def reviews():
     con = sql.connect("database.db")
     c = con.cursor()
     rows = getReviews(con, c)
-
-    # for row in rows:
-    #    print(row)
 
     return render_template("reviews.html", rows=rows)
 
@@ -162,6 +155,43 @@ def getForSale(con, c):
 
     return c.fetchall()
 
+def getSold(con, c):
+    # drop table
+    try:
+        stmt = "DROP TABLE Sold"
+        c.execute(stmt)
+    except Exception as e:
+        print(e)
+    # create table
+    try:
+        stmt = "CREATE TABLE Sold (id INTEGER PRIMARY KEY, name TEXT NOT NULL, img TEXT NOT NULL);"
+        c.execute(stmt)
+        con.commit()
+    except Exception as e:
+        print(e)
+
+    # populate table
+    obj = ForSaleListing()
+    soldPath = os.getcwd() + "\\static\\images\\Sold"
+    soldPath = soldPath.replace("\\", "/")
+    for x in obj.load_directory(path=soldPath):
+        try:
+            if ".jpg" in x:
+                with open(soldPath + "/" + x, "rb") as f:
+                    data = base64.b64encode(f.read())
+                    c.execute("""INSERT INTO Sold (name, img) VALUES (?, ?)""", (x, data))
+                    print("Sold {} added to database ".format(x))
+        except Exception as e:
+            print(e)
+            print("{} Not added to database ".format(x))
+
+    # return table results
+    con.row_factory = sql.Row
+    stmt = "select * from Sold"
+    c.execute(stmt)
+
+    return c.fetchall()
+
 def getReviews(con, c):
     # drop table
     try:
@@ -178,10 +208,28 @@ def getReviews(con, c):
         print(e)
 
     try:
-        c.execute("""INSERT INTO Reviews (name, review, date) VALUES (?, ?, ?)""", ("Jacob Jackobson", "Great service, Love playing/watching my hedgehog! Thank you guys!", "3/21/21"))
-        c.execute("""INSERT INTO Reviews (name, review, date) VALUES (?, ?, ?)""", ("Timmy Timmerson", "Quick email responces, great customer service, and quality hedgehogs! Will definitely be recommending to all of my friends!", "2/15/21"))
-        c.execute("""INSERT INTO Reviews (name, review, date) VALUES (?, ?, ?)""", ("Sally Sandsman", "Cute hedgehogs! Cant wait until mine arrives!", "1/12/21"))
-        c.execute("""INSERT INTO Reviews (name, review, date) VALUES (?, ?, ?)""", ("Penny Nickelson", "Just ordered 2 hedgehogs, amazing customer service!", "12/29/20"))
+        # populate table
+        obj = ForSaleListing()
+        forSalePath = os.getcwd() + "\\static\\Reviews"
+        forSalePath = forSalePath.replace("\\", "/")
+        for x in obj.load_directory(path=forSalePath):
+            try:
+                Name = x.replace(".txt", "")
+                Review = Date = ''
+                with open(forSalePath + "/" + x, "r") as f:
+                    file_data = f.readlines()
+                    for item in file_data:
+                        if 'Review' in item:
+                            Review = get_value(item)
+                        elif 'Date' in item:
+                            Date = get_value(item)
+                with open(forSalePath + "/" + x, "rb") as f:
+                    data = base64.b64encode(f.read())
+                    c.execute("""INSERT INTO Reviews (name, review, date) VALUES (?, ?, ?)""", (Name, Review, Date))
+                print("Added review from {}".format(Name))
+            except Exception as e:
+                print(e)
+                print("{} Not added to database ".format(x))
     except Exception as e:
         print(e)
 

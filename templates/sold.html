@@ -1,10 +1,33 @@
 {% extends "Common.html" %}
 {% block title %}Sold{% endblock %}
 {% block html_head %}
+<style>
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+        padding: 1% 0%;
+        box-sizing: border-box;
+        height: 45vh;
+    }
+    @media (min-width: 1200px){
+        .container {
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+        }
+    }
+
+    @media (min-width: 0px) and (max-width: 1199px){
+        .container {
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        }
+    }
+</style>
 {% endblock %}
 {% block content %}
     <div>
-        <h2 style="width: 100%; text-align: center;">Here are some hedgehogs that have been sold!</h3>
+        <h2 style="width: 100%; text-align: center;">Here are some hedgehogs that have been sold!</h2>
             <style>
                 .box span {
                     font-size: 2.8vh;
@@ -16,53 +39,12 @@
                 }
             </style>
         <div class="container" style="height: 40vh">
-            <div class="box">
-                <img src="images/Sold/ (1).jpg" alt="sold hedgehog 1">
-                <span>Jerry</span>
-            </div>
-            <div class="box">
-                <img src="images/Sold/ (2).jpg" alt="sold hedgehog 2">
-                <span>Terry</span>
-            </div>
-            <div class="box">
-                <img src="images/Sold/ (3).jpg" alt="sold hedgehog 3">
-                <span>Larry</span>
-            </div>
-            <div class="box">
-                <img src="images/Sold/ (4).jpg" alt="sold hedgehog 4">
-                <span>Perry</span>
-            </div>
-            <div class="box">
-                <img src="images/Sold/ (5).jpg" alt="sold hedgehog 5">
-                <span>Tom</span>
-            </div>
-            <div class="box">
-                <img src="images/Sold/ (6).jpg" alt="sold hedgehog 6">
-                <span>Sally</span>
-            </div>
-
-        </div>
-        <div class="container" style="height: 40vh">
-            <div class="box">
-                <img src="images/Sold/ (7).jpg" alt="sold hedgehog 7">
-                <span>Jake</span>
-            </div>
-            <div class="box">
-                <img src="images/Sold/ (8).jpg" alt="sold hedgehog 8">
-                <span>Tim</span>
-            </div>
-            <div class="box">
-                <img src="images/Sold/ (9).jpg" alt="sold hedgehog 9">
-                <span>Kelly</span>
-            </div>
-            <div class="box">
-                <img src="images/Sold/ (10).jpg" alt="sold hedgehog 10">
-                <span>Austin</span>
-            </div>
-            <div class="box">
-                <img src="images/Sold/ (11).jpg" alt="sold hedgehog 11">
-                <span>Jack</span>
-            </div>
+            {% for row in rows %}
+                <div class="box" style="height: 25vh; width: 25vh;">
+                    <img src="data:image/jpg;base64,{{ row[2].decode('ascii') }}" alt="for sale #{{row[0]}} hedgehog">
+                    <span>{{row[1]}}</span>
+                </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}
