@@ -181,9 +181,10 @@ def getSold(con, c):
     for x in obj.load_directory(path=soldPath):
         try:
             if ".jpg" in x:
+                name = x.replace(".jpg", "")
                 with open(soldPath + "/" + x, "rb") as f:
                     data = base64.b64encode(f.read())
-                    c.execute("""INSERT INTO Sold (name, img) VALUES (?, ?)""", (x, data))
+                    c.execute("""INSERT INTO Sold (name, img) VALUES (?, ?)""", (name, data))
                     print("Sold {} added to database ".format(x))
         except Exception as e:
             print(e)

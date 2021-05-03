@@ -121,6 +121,7 @@ header button:hover{
 }
 
 .main {
+    display: inline-block;
     position: absolute;
     transition: 0.5s;
     margin-top: 125px;
@@ -339,12 +340,12 @@ header button:hover{
 }
 
 .footer {
-    display: grid;
+    display: inline-block;
     grid-template-columns: 1fr 1fr 1fr;
     font-size: 2vh;
     left: 0;
     bottom: 0;
-    position: absolute;
+    position: relative;
     width: 100%;
     height: 3vh;
     color: white;
@@ -357,80 +358,4 @@ header button:hover{
 .footer a{
     color: #E0DFD4;
     text-decoration: none;
-}
-
-.card {
-  position: relative;
-
-  margin: 20px auto;
-  width: 350px;
-  height: 350px;
-  overflow: hidden;
-
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.card_part {
-    position: absolute;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-
-    transform: translateX( 350px );
-
-    background-image: url({{url_for('static', filename = 'images/Home/1.jpg')}});
-    animation: opaqTransition 28s cubic-bezier(0, 0, 0, 0.97) infinite;
-    background-size:contain;
-}
-
-.card_part.card_part-two {
-  z-index: 6;
-  animation-delay: 7s;
-}
-
-.card_part.card_part-three {
-  z-index: 5;
-  animation-delay: 14s;
-}
-
-.card_part.card_part-four {
-  z-index: 4;
-  animation-delay: 21s;
-}
-
-.card_part_2 {
-    position: absolute;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-  
-    transform: translateX( 350px );
-    background-image: url({{url_for('static', filename = 'images/Home/5.jpg')}});
-    animation: opaqTransition 28s cubic-bezier(0, 0, 0, 0.97) infinite;
-    background-size:contain;
-  }
-
-.card_part_2.card_part-two {
-    z-index: 6;
-    animation-delay: 7s;
-  }
-  
-.card_part_2.card_part-three {
-    z-index: 5;
-    animation-delay: 14s;
-}
-  
-.card_part_2.card_part-four {
-    z-index: 4;
-    animation-delay: 21s;
-}  
-
-
-
-@keyframes opaqTransition {
-  3% { transform: translateX( 0 ); }
-  25% { transform: translateX( 0 ); }
-  28% { transform: translateX( -350px ); }
-  100% { transform: translateX( -350px ); }
 }

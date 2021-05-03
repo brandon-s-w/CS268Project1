@@ -3,6 +3,8 @@
 {% block html_head %}
 <style>
     .container {
+        width: 100%;
+        margin-left: 15px;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -12,21 +14,31 @@
     }
     @media (min-width: 1200px){
         .container {
+            width: 100%;
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
             grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
         }
     }
 
-    @media (min-width: 0px) and (max-width: 1199px){
+    @media (min-width: 800px) and (max-width: 1199px){
         .container {
-            grid-template-columns: 1fr 1fr 1fr;
+            width: 100%;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        }
+    }
+
+    @media (min-width: 0px) and (max-width: 799px){
+        .container {
+            width: 100%;
+            grid-template-columns: 1fr 1fr;
             grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         }
     }
 </style>
 {% endblock %}
 {% block content %}
-    <div>
+    <div style="width: 100%">
         <h2 style="width: 100%; text-align: center;">Here are some hedgehogs that have been sold!</h2>
             <style>
                 .box span {
@@ -41,7 +53,7 @@
         <div class="container" style="height: 40vh">
             {% for row in rows %}
                 <div class="box" style="height: 25vh; width: 25vh;">
-                    <img src="data:image/jpg;base64,{{ row[2].decode('ascii') }}" alt="for sale #{{row[0]}} hedgehog">
+                    <img src="data:image/jpg;base64,{{ row[2].decode('ascii') }}" alt="sold #{{row[0]}} hedgehog">
                     <span>{{row[1]}}</span>
                 </div>
             {% endfor %}

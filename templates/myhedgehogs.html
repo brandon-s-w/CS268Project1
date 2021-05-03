@@ -1,10 +1,14 @@
 {% extends "Common.html" %}
 {% block title %}My Hedgehogs{% endblock %}
 {% block html_head %}
-
+<style>
+    .footer {
+        visibility: hidden;
+    }
+</style>
 {% endblock %}
 {% block content %}
-    <div style="height: 120%">
+    <div>
         <h3 style="text-align: center;">Here are some of my hedgehogs!</h3>
         <div class="container" style="height: 50vh; width: 70%; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr ; margin: auto; margin-bottom: 0; text-align: center;">
             <div class="box">
