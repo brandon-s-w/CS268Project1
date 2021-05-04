@@ -17,6 +17,47 @@
                 <p>Ready: {{row[6]}}</p>
             </div>
         {% endfor %}
+        <style>
+            .main form {
+                width: 400px;
+                background-color: #72911C;
+                box-shadow: 0 20px 30px rgba(0, 0, 0, .2);
+                padding: 1%;
+                border-radius: 10px;
+                text-align: center;
+                margin: auto;
+            }
+            .main form input {
+                text-align: center;
+                width: 92%;
+                background-color: #E0DFD4;
+                padding: 1%;
+                margin: 10px;
+            }
+            .main form h3 {
+                text-align: center;
+                width: 92%;
+                font-family: 'Dancing Script', cursive;
+                font-size: 40px;
+                text-shadow: 2px 2px 2px #333;
+                color: #E0DFD4;
+                background-color: #536915;
+                border-radius: 10px;
+                padding: 1%;
+                margin: 10px;
+                margin-left: 14px;
+            }
+
+    </style>
+        <form action="{{ url_for('inquireHoglet') }}" method="post">
+            <h3>Request a Hoglet!</h3>
+            <input name="email" type="text" id="email" size="140" placeholder="Email">
+            <input name="hoglet" type="text" id="hoglet" size="140" placeholder="Name of hoglet">
+            <input type="submit" class="btn btn-success" value="Request"/>
+        </form>
+        <br>
+        <br>
+        <br>
     </div>
 {% endblock %}
 {% block navOverlay %}

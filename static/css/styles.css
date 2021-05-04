@@ -132,6 +132,16 @@ header button:hover{
 	align-items:center;
 }
 
+.main h3 {
+	text-align: center;
+	width: 100%;
+	font-family: 'Dancing Script', cursive;
+	font-size: 60px;
+	text-shadow: 2px 2px 2px #333;
+	color: #ffffff;
+	padding: 1%;
+}
+
 .container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;

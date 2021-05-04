@@ -4,17 +4,51 @@
 {% endblock %}
 {% block content %}
     <div style="height: 115%;">
-        <div class="reviews">
+        <div class="reviews" style="width: 100%">
             {% for row in rows %}
                 <p class="name">{{row[1]}}</p>
                 <p class="review">'{{row[2]}}' - {{row[3]}}</p>
                 <br>
             {% endfor %}
         </div>
-        <br>
-        <br>
-        <br>
-        <h3 style="margin: 20px;">Want to submit a review? Email us through our contact page!</h3>
+        <style>
+            .main form {
+                width: 400px;
+                background-color: #72911C;
+                box-shadow: 0 20px 30px rgba(0, 0, 0, .2);
+                padding: 1%;
+                border-radius: 10px;
+                text-align: center;
+                margin: auto;
+            }
+            .main form input {
+                text-align: center;
+                width: 92%;
+                background-color: #E0DFD4;
+                padding: 1%;
+                margin: 10px;
+            }
+            .main form h3 {
+                text-align: center;
+                width: 92%;
+                font-family: 'Dancing Script', cursive;
+                font-size: 40px;
+                text-shadow: 2px 2px 2px #333;
+                color: #E0DFD4;
+                background-color: #536915;
+                border-radius: 10px;
+                padding: 1%;
+                margin: 10px;
+                margin-left: 14px;
+            }
+
+    </style>
+        <form action="{{ url_for('submitReview') }}" method="post">
+            <h3>Submit a review!</h3>
+            <input name="name" type="text" id="nam" size="140" placeholder="Name">
+            <input name="review" type="text" id="rev" size="140" placeholder="Review">
+            <input type="submit" class="btn btn-success" value="Submit"/>
+        </form>
     </div>
 {% endblock %}
 {% block navOverlay %}
