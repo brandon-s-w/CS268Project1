@@ -124,10 +124,23 @@ def inquireHoglet():
     con = sql.connect("database.db")
     c = con.cursor()
 
-    c.execute("""INSERT INTO Inquiries (email, hoglet, date) VALUES (?, ?, ?)""", (email, hoglet, today.strftime("%m/%d/%y")))
-    con.commit()
+    try:
+        cur2 = con.execute("SELECT name, requests FROM ForSale")
+        for row1 in cur2.fetchall():
+            hogletTmp = row1[0]
 
-    return render_template('index.html')
+            if hoglet == hogletTmp:
+                print
+                "yes"  # as a test for me to see the loop worked
+                con.execute("UPDATE ForSale SET requests=requests+1 WHERE name=?", (hoglet,))
+                c.execute("""INSERT INTO Inquiries (email, hoglet, date) VALUES (?, ?, ?)""", (email, hoglet, today.strftime("%m/%d/%y")))
+                con.commit()
+    except Exception as err:
+        print(err)
+
+    rows = con.execute("SELECT * FROM ForSale")
+    rows = rows.fetchall()
+    return render_template('forsale.html', rows=rows)
 
 class ForSaleListing(object):
     def __init__(self):
@@ -202,7 +215,7 @@ def get_value(item):
 def popDatabase():
     # create tables
     try:
-        stmt = "CREATE TABLE IF NOT EXISTS ForSale (id INTEGER PRIMARY KEY, name TEXT NOT NULL, price TEXT NOT NULL, dob TEXT NOT NULL, color TEXT NOT NULL, gender TEXT NOT NULL, ready TEXT NOT NULL, img TEXT NOT NULL);"
+        stmt = "CREATE TABLE IF NOT EXISTS ForSale (id INTEGER PRIMARY KEY, name TEXT NOT NULL, price TEXT NOT NULL, dob TEXT NOT NULL, color TEXT NOT NULL, gender TEXT NOT NULL, ready TEXT NOT NULL, img TEXT NOT NULL, requests INTEGER);"
         c.execute(stmt)
         stmt = "CREATE TABLE IF NOT EXISTS Sold (id INTEGER PRIMARY KEY, name TEXT NOT NULL, img TEXT NOT NULL);"
         c.execute(stmt)
@@ -332,9 +345,19 @@ def popDatabase():
     c.execute(stmt)
     stmt = "DELETE FROM Inquiries WHERE rowid NOT IN (SELECT min(rowid) FROM Inquiries GROUP BY email);"
     c.execute(stmt)
+
+    # set default values
+    cur2 = con.execute("SELECT name, requests FROM ForSale")
+    for row1 in cur2.fetchall():
+        hogletTmp = row1[0]
+
+        tmp = con.execute("UPDATE ForSale SET requests=0 ")
+
+
     con.commit()
 
 ## START FUNCTION
 if __name__ == '__main__':
     popDatabase()
     app.run(debug=True)
+

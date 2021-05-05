@@ -4,7 +4,7 @@
 {% endblock %}
 {% block content %}
     <div>
-        <h3 style="width: 100%; text-align: center;">Here are some hedgehogs that are for sale!</h3>
+        <h4 style="width: 100%; text-align: center;">Here are some hedgehogs that are for sale!</h4>
         {% for row in rows %}
             <div class="container" style="height: 55vh; width: 55vh; grid-template-columns: 1fr; grid-template-rows: 1fr; margin: auto; text-align: center;">
                 <div class="box">
@@ -15,6 +15,7 @@
                 <p>Color: {{row[4]}}</p>
                 <p>Gender: {{row[5]}}</p>
                 <p>Ready: {{row[6]}}</p>
+                <p>Requests: {{row[8]}}</p>
             </div>
         {% endfor %}
         <style>
