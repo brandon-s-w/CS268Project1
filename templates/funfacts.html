@@ -1,0 +1,80 @@
+{% extends "Common.html" %}
+{% block title %}Fun Facts{% endblock %}
+{% block html_head %}
+{% endblock %}
+{% block content %}
+    <div>
+        <div style="width: 100%; text-align: center;">
+            <img style="width: 50vh; max-height: 500px; border: 2px solid black;" src="{{url_for('static', filename = 'images/funfacts.jpg')}}" alt="hedgehog image">
+            <br>
+            <a href="https://www.mentalfloss.com/article/56004/16-fun-facts-about-hedgehogs" target="_blank">sources</a>
+            <div style="font-weight: bold; font-size: 35px; font-family: 'Dancing Script', cursive;  color: #72911C; text-shadow: 2px 2px 2px white;">
+                <p >A group of hedgehogs is called an 'Array'</p>
+                <br>
+                <p>Hedgehogs are illegal in some parts of the United States</p>
+                <br>
+                <p>A Hedgehog has between 5000 and 7000 quills</p>
+                <br>
+                <p>There are 17 different species of hedgehog</p>
+                <br>
+                <p>Hedgehogs rely on hearing and smell because they have poor eyesight</p>
+                <br>
+                <p>Hedgehog spikes are not barbed or poisonous</p>
+
+                <br>
+                {% for row in rows %}
+                    <p>'{{row[2]}}' - {{row[1]}}</p>
+                {% endfor %}
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
+        <style>
+            .main form {
+                width: 400px;
+                background-color: #72911C;
+                box-shadow: 0 20px 30px rgba(0, 0, 0, .2);
+                padding: 1%;
+                border-radius: 10px;
+                text-align: center;
+                margin: auto;
+            }
+            .main form input {
+                text-align: center;
+                width: 92%;
+                background-color: #E0DFD4;
+                padding: 1%;
+                margin: 10px;
+            }
+            .main form h3 {
+                text-align: center;
+                width: 92%;
+                font-family: 'Dancing Script', cursive;
+                font-size: 40px;
+                text-shadow: 2px 2px 2px #333;
+                color: #E0DFD4;
+                background-color: #536915;
+                border-radius: 10px;
+                padding: 1%;
+                margin: 10px;
+                margin-left: 14px;
+            }
+
+    </style>
+        <form action="{{ url_for('submitFact') }}" method="post">
+            <h3>Submit a Fun Fact!</h3>
+            <input name="name" type="text" id="name" size="140" placeholder="Name">
+            <input name="fact" type="text" id="fact" size="140" placeholder="Fun Fact">
+            <input type="submit" class="btn btn-success" value="Submit"/>
+        </form>
+        <br>
+        <br>
+        <br>
+    </div>
+{% endblock %}
+{% block navOverlay %}
+    <div class="overlay" id="headerOverlay" style="height: 75px;">
+        <h1 id="headerTitle" style="font-size: 57px;">Fun Facts</h1>
+    </div>
+{% endblock %}

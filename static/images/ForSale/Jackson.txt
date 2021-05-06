@@ -1,0 +1,5 @@
+Price: 160$
+DOB: 02/13/21
+Color: Cinnamon
+Gender: Male
+Ready: 03/03/21

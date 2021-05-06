@@ -1,0 +1,49 @@
+{% extends "Common.html" %}
+{% block title %}My Hedgehogs{% endblock %}
+{% block html_head %}
+<style>
+    .footer {
+        visibility: hidden;
+    }
+</style>
+{% endblock %}
+{% block content %}
+    <div>
+        <h4 style="text-align: center;">Here are some of my hedgehogs!</h4>
+        <div class="container" style="height: 50vh; width: 70%; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr ; margin: auto; margin-bottom: 0; text-align: center;">
+            <div class="box">
+
+                <img src="{{url_for('static', filename = 'images/MyHedgehogs/Pippi.jpg')}}" alt="Pippi hedgehog">
+                <span>Pippi</span>
+            </div>
+            <div class="box">
+                <img src="{{url_for('static', filename = 'images/MyHedgehogs/Maddie.jpg')}}" alt="Maddie hedgehog">
+                <span>Maddie</span>
+            </div>
+            <p style="text-align: center;">Color: Black<br> DOB: 01/18/2020<br> Gender: Female</p>
+            <p style="text-align: center;">Color: Cinnamon<br> DOB: 06/28/2020<br> Gender: Female</p>
+        </div>
+        <div class="container" style="height: 50vh; width: 70%; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr ; margin: auto; margin-bottom: 0; text-align: center;">
+            <div class="box">
+                <img src="{{url_for('static', filename = 'images/MyHedgehogs/Maggie.jpg')}}" alt="Maggie hedgehog">
+                <span>Maggie</span>
+            </div>
+            <div class="box">
+                <img src="{{url_for('static', filename = 'images/MyHedgehogs/Ted.jpg')}}" alt="Ted hedgehog">
+                <span>Ted</span>
+            </div>
+            <div class="box">
+                <img src="{{url_for('static', filename = 'images/MyHedgehogs/Fey.jpg')}}" alt="Fey hedgehog">
+                <span>Fey</span>
+            </div>
+            <p style="text-align: center;">Color: High Pinto<br> DOB: 5/11/2020<br> Gender: Female</p>
+            <p style="text-align: center;">Color: Salt and Pepper<br> DOB: 07/18/2020<br> Gender: Male</p>
+            <p style="text-align: center;">Color: Salt and Pepper<br> DOB: 09/08/2020<br> Gender: Female</p>
+        </div>
+    </div>
+{% endblock %}
+{% block navOverlay %}
+    <div class="overlay" id="headerOverlay" style="height: 75px;">
+        <h1 id="headerTitle" style="font-size: 57px;">My Hedgehogs</h1>
+    </div>
+{% endblock %}

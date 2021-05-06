@@ -1,0 +1,67 @@
+{% extends "Common.html" %}
+{% block title %}Sold{% endblock %}
+{% block html_head %}
+<style>
+    .container {
+        width: 100%;
+        margin-left: 15px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+        padding: 1% 0%;
+        box-sizing: border-box;
+        height: 45vh;
+    }
+    @media (min-width: 1200px){
+        .container {
+            width: 100%;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+        }
+    }
+
+    @media (min-width: 800px) and (max-width: 1199px){
+        .container {
+            width: 100%;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        }
+    }
+
+    @media (min-width: 0px) and (max-width: 799px){
+        .container {
+            width: 100%;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        }
+    }
+</style>
+{% endblock %}
+{% block content %}
+    <div style="width: 100%">
+        <h2 style="width: 100%; text-align: center;">Here are some hedgehogs that have been sold!</h2>
+            <style>
+                .box span {
+                    font-size: 2.8vh;
+                    height: 5vh;
+                    line-height: 1.6;
+                }
+                .box img {
+                    height: calc(100% - 5vh);
+                }
+            </style>
+        <div class="container" style="height: 40vh">
+            {% for row in rows %}
+                <div class="box" style="height: 25vh; width: 25vh;">
+                    <img src="data:image/jpg;base64,{{ row[2].decode('ascii') }}" alt="sold #{{row[0]}} hedgehog">
+                    <span>{{row[1]}}</span>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+{% block navOverlay %}
+    <div class="overlay" id="headerOverlay" style="height: 75px;">
+        <h1 id="headerTitle" style="font-size: 57px;">Sold</h1>
+    </div>
+{% endblock %}

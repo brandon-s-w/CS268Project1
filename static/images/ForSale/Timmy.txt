@@ -1,0 +1,5 @@
+Price: 140$
+DOB: 02/13/21
+Color: Grey Pinto
+Gender: Male
+Ready: 03/03/21
